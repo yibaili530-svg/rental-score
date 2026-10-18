@@ -120,19 +120,21 @@ function field(k, label, val, attrs = '', icon = '') {
   return `<div class="field"><span class="lbl">${icon ? `<span class="mi">${icon}</span>` : ''}${label}</span><input data-f="${k}" ${attrs} value="${esc(val)}"></div>`;
 }
 
-function photosHtml(p) {
-  const thumbs = (p.photos || []).map((src, i) =>
+function photoActions() {
+  return `<button class="add-photo" data-act="cam" aria-label="拍照"><span class="ico">${IC.camera}</span><small>拍照</small></button>` +
+    `<button class="add-photo" data-act="pick" aria-label="相册"><span class="ico">${IC.gallery}</span><small>相册</small></button>`;
+}
+
+function photoThumbs(p) {
+  return (p.photos || []).map((src, i) =>
     `<div class="ph"><img src="${src}" alt=""><button class="ph-del" data-act="pdel" data-idx="${i}" aria-label="删除">×</button></div>`
   ).join('');
-  return thumbs +
-    `<button class="add-photo" data-act="cam" aria-label="拍照"><span class="ico">${IC.camera}</span><small>拍照</small></button>` +
-    `<button class="add-photo" data-act="pick" aria-label="相册"><span class="ico">${IC.gallery}</span><small>相册</small></button>`;
 }
 
 function refreshPhotos() {
   const el = document.getElementById('photos');
   const p = S.getProp(state.id);
-  if (el && p) el.innerHTML = photosHtml(p);
+  if (el && p) el.innerHTML = photoThumbs(p);
   const pb = document.querySelector('[data-jump="sec-photos"]');
   if (pb && p) pb.lastChild.textContent = `照片 ${p.photos.length}`;
 }
@@ -170,7 +172,8 @@ function renderScore(v) {
       <div class="field"><span class="lbl"><span class="mi">${ITEM_ICONS.i_contract}</span>备注</span><textarea data-f="note" rows="2">${esc(p.note)}</textarea></div>
     </div>
     <div class="sec-title" id="sec-photos"><span class="ico">${IC.photo}</span>照片</div>
-    <div id="photos" class="photos">${photosHtml(p)}</div>
+    <div class="photo-actions">${photoActions()}</div>
+    <div id="photos" class="photos">${photoThumbs(p)}</div>
     <button class="btn danger btn-block" data-act="del" style="margin-top:22px">删除房源</button>
   </section>`;
 }

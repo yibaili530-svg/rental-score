@@ -1,4 +1,4 @@
-const CACHE = 'rentscore-v3';
+const CACHE = 'rentscore-v4';
 const ASSETS = [
   './', './index.html', './styles.css', './app.js', './views.js', './store.js', './manifest.json',
   './icons/icon.svg', './icons/icon-180.png', './icons/icon-192.png', './icons/icon-512.png',

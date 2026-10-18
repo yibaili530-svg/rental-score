@@ -74,7 +74,7 @@ button { cursor: pointer; }
 #view {
   max-width: 520px;
   margin: 0 auto;
-  padding: 6px 16px calc(var(--tab-h) + var(--safe-b) + 110px);
+  padding: 6px 16px calc(var(--tab-h) + env(safe-area-inset-bottom) + 24px);
   min-height: 60vh;
 }
 
@@ -233,7 +233,11 @@ button { cursor: pointer; }
 .field textarea { padding: 10px 14px; min-height: 0; resize: vertical; }
 .field input:focus, .field textarea:focus { border-color: var(--brand); }
 
-.photos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 14px; }
+.photo-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 12px; }
+.photo-actions .add-photo { aspect-ratio: auto; height: 56px; flex-direction: row; gap: 8px; font-size: 14px; background: color-mix(in srgb, var(--brand) 10%, transparent); }
+.photo-actions .add-photo .ico { width: 22px; height: 22px; }
+.photos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 12px; }
+.photos:empty { display: none; }
 .ph { position: relative; aspect-ratio: 1; border-radius: 16px; overflow: hidden; background: var(--line); }
 .ph img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .ph-del {
