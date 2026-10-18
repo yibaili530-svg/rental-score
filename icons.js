@@ -1,32 +1,32 @@
 const INK = '#5b5650';
 
 const svg = (body, attrs) => `<svg viewBox="0 0 24 24" ${attrs} aria-hidden="true">${body}</svg>`;
-const item = body => svg(body, `fill="none" stroke="${INK}" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"`);
+const item = body => svg(body, '');
 const ui = body => svg(body, 'fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"');
 
 export const ITEM_ICONS = {
-  i_loc: item(`<path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0C18.5 15.4 12 21 12 21z" fill="#eba79a"/><circle cx="12" cy="10" r="2.4" fill="#fff"/>`),
-  i_traffic: item(`<rect x="5" y="3.5" width="14" height="14" rx="3.5" fill="#8fb3d9"/><rect x="7.5" y="6.5" width="9" height="5" rx="1.2" fill="#fff" stroke="none"/><circle cx="8.5" cy="18.5" r="1.5" fill="${INK}" stroke="none"/><circle cx="15.5" cy="18.5" r="1.5" fill="${INK}" stroke="none"/>`),
-  i_env: item(`<circle cx="12" cy="9.5" r="6.5" fill="#9cc5a1"/><path d="M12 16v5"/>`),
-  i_room: item(`<rect x="3" y="10" width="18" height="6" rx="2" fill="#b5a8d6"/><path d="M3 16v3.5M21 16v3.5"/><rect x="5.5" y="7" width="6" height="3.5" rx="1.5" fill="#fff"/>`),
-  i_share: item(`<circle cx="9" cy="8" r="3.2" fill="#f2d38a"/><path d="M3.5 20c0-3.3 2.5-5.5 5.5-5.5s5.5 2.2 5.5 5.5z" fill="#f2d38a"/><circle cx="16.5" cy="9" r="2.6" fill="#c9bfb3"/><path d="M15.2 14.4c2.8-.2 5.3 1.8 5.3 5.1"/>`),
-  i_bath: item(`<path d="M3 12h18v1.5a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5z" fill="#8fb3d9"/><path d="M6 12V6.5a2 2 0 0 1 4 0M7 19.5l-1 1.5M17 19.5l1 1.5"/>`),
-  i_light: item(`<circle cx="12" cy="12" r="4.2" fill="#f2d38a"/><path d="M12 2.8v2.2M12 19v2.2M2.8 12H5M19 12h2.2M5.4 5.4l1.6 1.6M17 17l1.6 1.6M5.4 18.6L7 17M17 7l1.6-1.6"/>`),
-  i_deco: item(`<rect x="3" y="4" width="14" height="5" rx="2" fill="#eba79a"/><path d="M15 9v2.5a2 2 0 0 1-2 2h-2v7"/>`),
-  i_video: item(`<rect x="3" y="6.5" width="13" height="11" rx="2.5" fill="#8fb3d9"/><path d="M16 10.5l5-3v9l-5-3z" fill="#f2d38a"/>`),
-  i_sublet: item(`<circle cx="12" cy="12" r="3" fill="#9cc5a1" stroke="none"/><path d="M19 12a7 7 0 0 1-12.2 4.7M5 12a7 7 0 0 1 12.2-4.7M17.5 4v3.5H14M6.5 20v-3.5H10"/>`),
-  i_price: item(`<circle cx="12" cy="13.5" r="6.5" fill="#f2d38a"/><path d="M9.5 4.5h5l-1 3h-3z" fill="#c9bfb3"/><circle cx="12" cy="13.5" r="3"/>`),
-  i_safe: item(`<path d="M12 3l7 2.5V11c0 4.5-3 8-7 9-4-1-7-4.5-7-9V5.5z" fill="#9cc5a1"/><path d="M9 12l2.2 2.2L15.5 10" stroke="#fff"/>`),
-  i_noise: item(`<path d="M4 9.5h3.5L12 6v12l-4.5-3.5H4z" fill="#8fb3d9"/><path d="M15.5 9.5a3.5 3.5 0 0 1 0 5M18.3 6.8a7 7 0 0 1 0 10.4"/>`),
-  i_landlord: item(`<circle cx="9.5" cy="8" r="3.3" fill="#b5a8d6"/><path d="M3.5 20c0-3.4 2.6-6 6-6s6 2.6 6 6z" fill="#b5a8d6"/><circle cx="17.5" cy="16.5" r="3.5" fill="#9cc5a1"/><path d="M16 16.5l1.1 1.1 2-2.1" stroke="#fff"/>`),
-  i_hidden: item(`<path d="M6 3h12v17.5l-2.2-1.5-2 1.5-2-1.5-2 1.5-2-1.5L6 20.5z" fill="#fff"/><path d="M9 8h6M9 12h4"/><circle cx="16.5" cy="16" r="3" fill="#eba79a" stroke="none"/>`),
-  i_appl: item(`<rect x="5.5" y="3" width="13" height="18" rx="2.5" fill="#fff"/><path d="M5.5 10h13M8.5 6.5v1.5M8.5 13v3"/>`),
-  i_kitchen: item(`<path d="M3.5 11h17v3.5a5.5 5.5 0 0 1-5.5 5.5H9a5.5 5.5 0 0 1-5.5-5.5z" fill="#eba79a"/><path d="M1.5 12.5h2M20.5 12.5h2M9 3.5c-1 1.2 1 2.2 0 3.6M13.5 3.5c-1 1.2 1 2.2 0 3.6"/>`),
-  i_contract: item(`<path d="M6 3h8l4 4v14H6z" fill="#fff"/><path d="M14 3v4h4M9 12h6M9 15.5h4"/><circle cx="17.5" cy="18" r="2.5" fill="#f2d38a"/>`),
-  i_damp: item(`<path d="M9 3.5c2.6 3.4 5 6 5 9.2a5 5 0 0 1-10 0c0-3.2 2.4-5.8 5-9.2z" fill="#8fb3d9"/><path d="M15 14h5.5M16.5 18h4"/>`),
+  i_loc: item(`<path d="M12 2.5a7 7 0 0 0-7 7c0 5 7 12 7 12s7-7 7-12a7 7 0 0 0-7-7z" fill="#eba79a"/><circle cx="12" cy="9.5" r="2.6" fill="#fff"/>`),
+  i_traffic: item(`<rect x="4.5" y="3" width="15" height="16" rx="4" fill="#8fb3d9"/><rect x="7" y="6" width="10" height="6" rx="1.5" fill="#fff"/><circle cx="8.5" cy="16" r="1.5" fill="#6f93b8"/><circle cx="15.5" cy="16" r="1.5" fill="#6f93b8"/><rect x="7" y="19" width="2.5" height="2.5" rx=".8" fill="#6f93b8"/><rect x="14.5" y="19" width="2.5" height="2.5" rx=".8" fill="#6f93b8"/>`),
+  i_env: item(`<circle cx="12" cy="9.5" r="7" fill="#9cc5a1"/><rect x="10.8" y="15" width="2.4" height="6.5" rx="1" fill="#7aa680"/>`),
+  i_room: item(`<rect x="2.5" y="10" width="19" height="6.5" rx="2" fill="#b5a8d6"/><rect x="2.5" y="16" width="2.5" height="5" rx="1" fill="#9488bd"/><rect x="19" y="16" width="2.5" height="5" rx="1" fill="#9488bd"/><rect x="5.5" y="6.5" width="6.5" height="4.5" rx="1.8" fill="#fff"/>`),
+  i_share: item(`<circle cx="9" cy="8" r="3.8" fill="#f2d38a"/><path d="M2.5 21c0-4 2.9-6.5 6.5-6.5s6.5 2.5 6.5 6.5z" fill="#f2d38a"/><circle cx="16.5" cy="9" r="3.2" fill="#c9bfb3"/><path d="M13.6 14.2c3.4-.5 6.9 1.6 6.9 6.8h-6.2c0-2.5-.4-4.8-.7-6.8z" fill="#a89c8f"/>`),
+  i_bath: item(`<path d="M2.5 11h19v2a6 6 0 0 1-6 6h-7a6 6 0 0 1-6-6z" fill="#8fb3d9"/><rect x="5" y="3" width="3.5" height="6" rx="1.75" fill="#6f93b8"/><rect x="5" y="19" width="2" height="3" rx="1" fill="#6f93b8"/><rect x="17" y="19" width="2" height="3" rx="1" fill="#6f93b8"/>`),
+  i_light: item(`<circle cx="12" cy="12" r="5" fill="#f2d38a"/><g fill="#d9b45e"><circle cx="12" cy="2.8" r="1.6"/><circle cx="12" cy="21.2" r="1.6"/><circle cx="2.8" cy="12" r="1.6"/><circle cx="21.2" cy="12" r="1.6"/><circle cx="5.3" cy="5.3" r="1.5"/><circle cx="18.7" cy="18.7" r="1.5"/><circle cx="18.7" cy="5.3" r="1.5"/><circle cx="5.3" cy="18.7" r="1.5"/></g>`),
+  i_deco: item(`<rect x="3" y="4" width="15" height="6" rx="2" fill="#eba79a"/><rect x="16" y="6" width="4" height="2.2" rx="1" fill="#d4877a"/><rect x="12" y="10" width="3.5" height="11.5" rx="1.5" fill="#d4877a"/>`),
+  i_video: item(`<rect x="2.5" y="6.5" width="13.5" height="11" rx="2.8" fill="#8fb3d9"/><path d="M16.5 10.5l5.5-3.2v9.4l-5.5-3.2z" fill="#f2d38a"/>`),
+  i_sublet: item(`<circle cx="12" cy="12" r="9" fill="#9cc5a1"/><path d="M7 12.2a5 5 0 0 1 9.2-2.7l1.2-1.2.4 4.2-4.1-.5 1.2-1.2A3.2 3.2 0 0 0 8.6 12.5z" fill="#fff"/><path d="M17 11.8a5 5 0 0 1-9.2 2.7l-1.2 1.2-.4-4.2 4.1.5-1.2 1.2a3.2 3.2 0 0 0 5.8-1.9z" fill="#fff"/>`),
+  i_price: item(`<circle cx="12" cy="13" r="8" fill="#f2d38a"/><circle cx="12" cy="13" r="5" fill="#d9b45e"/><rect x="9.5" y="2.5" width="5" height="3.5" rx="1" fill="#c9bfb3"/>`),
+  i_safe: item(`<path d="M12 2.5l8 3v6c0 5-3.4 8.9-8 10-4.6-1.1-8-5-8-10v-6z" fill="#9cc5a1"/><path d="M7.8 12.3l1.5-1.5 2.1 2.1 4.1-4.1 1.5 1.5-5.6 5.6z" fill="#fff"/>`),
+  i_noise: item(`<path d="M3 9.5h4l5-4.5v14l-5-4.5H3z" fill="#8fb3d9"/><path d="M15 8.8a4.5 4.5 0 0 1 0 6.4l-1.2-1.2a2.8 2.8 0 0 0 0-4z" fill="#6f93b8"/><path d="M17.8 6a8.2 8.2 0 0 1 0 12l-1.3-1.3a6.4 6.4 0 0 0 0-9.4z" fill="#6f93b8"/>`),
+  i_landlord: item(`<circle cx="9.5" cy="8" r="4" fill="#b5a8d6"/><path d="M2.5 21c0-4 3.2-6.8 7-6.8s7 2.8 7 6.8z" fill="#b5a8d6"/><circle cx="17.5" cy="16.5" r="4.5" fill="#9cc5a1"/><path d="M15.2 16.3l1-1 1.3 1.3 2.3-2.3 1 1-3.3 3.3z" fill="#fff"/>`),
+  i_hidden: item(`<path d="M5.5 2.5h13v19l-2.2-1.5-2 1.5-2-1.5-2 1.5-2-1.5-2.8 1.5z" fill="#c9bfb3"/><rect x="8.5" y="7" width="7" height="1.8" rx=".9" fill="#a89c8f"/><rect x="8.5" y="11" width="4.5" height="1.8" rx=".9" fill="#a89c8f"/><circle cx="16.5" cy="16" r="3" fill="#eba79a"/>`),
+  i_appl: item(`<rect x="5" y="2.5" width="14" height="19" rx="3" fill="#c9bfb3"/><rect x="5" y="10" width="14" height="1.6" fill="#a89c8f"/><rect x="7.5" y="5.5" width="2" height="3" rx="1" fill="#fff"/><rect x="7.5" y="13" width="2" height="4" rx="1" fill="#fff"/>`),
+  i_kitchen: item(`<path d="M3 11h18v3.5a6 6 0 0 1-6 6H9a6 6 0 0 1-6-6z" fill="#eba79a"/><rect x="1" y="11" width="2.5" height="2" rx="1" fill="#d4877a"/><rect x="20.5" y="11" width="2.5" height="2" rx="1" fill="#d4877a"/><circle cx="9" cy="5" r="1.2" fill="#c9bfb3"/><circle cx="14" cy="4.5" r="1.2" fill="#c9bfb3"/>`),
+  i_contract: item(`<path d="M5.5 2.5h9l4 4v15h-13z" fill="#c9bfb3"/><path d="M14.5 2.5v4h4z" fill="#a89c8f"/><rect x="8" y="10" width="7.5" height="1.8" rx=".9" fill="#fff"/><rect x="8" y="13.5" width="5" height="1.8" rx=".9" fill="#fff"/><circle cx="17.5" cy="18" r="3.5" fill="#f2d38a"/>`),
+  i_damp: item(`<path d="M10 2.5c3.2 4.2 6 7.4 6 11.2a6 6 0 0 1-12 0c0-3.8 2.8-7 6-11.2z" fill="#8fb3d9"/><circle cx="19" cy="18.5" r="2.2" fill="#6f93b8"/>`),
 };
 
-export const FALLBACK_ICON = item(`<path d="M12 3.5l2.5 5.2 5.7.8-4.1 4 1 5.7L12 16.5l-5.1 2.7 1-5.7-4.1-4 5.7-.8z" fill="#f2d38a"/>`);
+export const FALLBACK_ICON = item(`<path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5-4.8-4.6 6.6-.9z" fill="#f2d38a"/>`);
 
 export const itemIcon = id => ITEM_ICONS[id] ?? FALLBACK_ICON;
 
