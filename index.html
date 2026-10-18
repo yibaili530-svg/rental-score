@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f6f6f4" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="租房评分">
+  <title>租房评分</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icons/icon-180.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><span class="logo"></span><span>租房评分</span><span class="key-motif"></span></div>
+    <div class="top-actions">
+      <button id="btn-import" class="tool-pill" aria-label="导入"></button>
+      <button id="btn-export" class="tool-pill" aria-label="导出"></button>
+      <button id="btn-settings" class="icon-btn" aria-label="设置"></button>
+    </div>
+  </header>
+
+  <main id="view"></main>
+
+  <button id="fab" class="fab" aria-label="新增房源">＋</button>
+
+  <nav class="tabbar">
+    <button data-tab="list" class="tab"><span class="ti"></span><span>房源</span></button>
+    <button data-tab="rank" class="tab"><span class="ti"></span><span>排行</span></button>
+    <button data-tab="compare" class="tab"><span class="ti"></span><span>对比</span></button>
+    <button data-tab="items" class="tab"><span class="ti"></span><span>指标</span></button>
+  </nav>
+
+  <dialog id="sheet">
+    <div class="sheet-body"></div>
+  </dialog>
+
+  <div id="toast" class="toast" role="status"></div>
+
+  <input id="file-import" type="file" accept=".json,.csv,application/json,text/csv" hidden>
+  <input id="file-camera" type="file" accept="image/*" capture=environment hidden>
+  <input id="file-photo" type="file" accept="image/*" multiple hidden>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
