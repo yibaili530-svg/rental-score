@@ -137,6 +137,25 @@ function refreshPhotos() {
   if (el && p) el.innerHTML = photoThumbs(p);
   const pb = document.querySelector('[data-jump="sec-photos"]');
   if (pb && p) pb.lastChild.textContent = `照片 ${p.photos.length}`;
+  updateHeroBg(p);
+}
+
+function updateHeroBg(p) {
+  const hero = document.querySelector('.score-view .hero');
+  if (!hero) return;
+  const src = p?.photos?.[0];
+  hero.classList.toggle('has-photo', !!src);
+  let bg = hero.querySelector('.hero-bg');
+  if (!src) {
+    bg?.remove();
+    hero.querySelector('.hero-veil')?.remove();
+    return;
+  }
+  if (!bg) {
+    hero.insertAdjacentHTML('afterbegin', '<img class="hero-bg" alt=""><div class="hero-veil"></div>');
+    bg = hero.querySelector('.hero-bg');
+  }
+  if (bg.getAttribute('src') !== src) bg.src = src;
 }
 
 function renderScore(v) {
@@ -176,6 +195,7 @@ function renderScore(v) {
     <div id="photos" class="photos">${photoThumbs(p)}</div>
     <button class="btn danger btn-block" data-act="del" style="margin-top:22px">删除房源</button>
   </section>`;
+  updateHeroBg(p);
 }
 
 function onStep(btn) {

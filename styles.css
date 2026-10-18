@@ -6,6 +6,9 @@
   --line: #ebebe9;
   --brand: #ff7a1a;
   --rate-color: #ff7a1a;
+  --veil: rgba(246, 246, 244, .80);
+  --disc: rgba(255, 255, 255, .82);
+  --track-photo: rgba(0, 0, 0, .12);
   --radius: 24px;
   --shadow: 0 10px 30px -14px rgba(0, 0, 0, .18);
   --tab-h: 64px;
@@ -14,6 +17,7 @@
 }
 
 @media (prefers-color-scheme: dark) {
+  :root { --veil: rgba(18, 18, 18, .74); --disc: rgba(30, 30, 30, .82); --track-photo: rgba(255, 255, 255, .16); }
   :root {
     --bg: #121212;
     --card: #1e1e1e;
@@ -159,6 +163,32 @@ button { cursor: pointer; }
 .mini-ring .ring-fg { fill: none; stroke: var(--rate-color); stroke-width: 5; stroke-linecap: round; transition: stroke-dashoffset .8s cubic-bezier(.4, 0, .2, 1); }
 
 .score-view .hero { text-align: center; padding: 8px 0 4px; }
+.score-view .hero.has-photo {
+  position: relative; overflow: hidden; border-radius: var(--radius);
+  padding: 20px 16px 18px; margin-bottom: 8px;
+}
+.hero-bg, .hero-veil { position: absolute; inset: 0; z-index: 0; }
+.hero-bg { width: 100%; height: 100%; object-fit: cover; filter: blur(8px) saturate(.9); transform: scale(1.15); }
+.hero-veil {
+  background: radial-gradient(circle at 50% 50%, var(--disc) 0, transparent 60%), var(--veil);
+}
+.has-photo > *:not(.hero-bg):not(.hero-veil) { position: relative; z-index: 1; }
+.has-photo .ring .track { stroke: var(--track-photo); }
+.has-photo .ring::before {
+  content: ""; position: absolute; left: 50%; top: 50%; z-index: -1;
+  width: 84%; aspect-ratio: 1; transform: translate(-50%, -50%); border-radius: 50%;
+  background: var(--disc); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+}
+.has-photo .total { text-shadow: 0 1px 2px rgba(0, 0, 0, .08); }
+.has-photo .hname {
+  display: inline-block; max-width: calc(100% - 24px); margin-bottom: 12px; padding: 4px 12px;
+  border-radius: 999px; background: var(--disc); color: var(--ink);
+  backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+}
+.has-photo .stars-sum {
+  width: fit-content; max-width: 100%; padding: 6px 10px; border-radius: 20px;
+  background: var(--disc); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+}
 .hname {
   margin: 0 auto 10px; max-width: 100%; font-size: 16px; font-weight: 600; color: var(--sub);
   white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
